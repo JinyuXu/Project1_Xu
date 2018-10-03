@@ -6,18 +6,6 @@ import scipy.stats as ss
 import matplotlib.pyplot as plt
 import argparse
 
-class status:
-
-    #Initial status of the particle
-
-    def init(self,initialposition,velocity, temperature, gamma,timestep,totaltime,mass=1):
-        self.initialposition = initialposition
-        self.initialvelocity = velocity
-        self.temperature = temperature
-        self.gamma = gamma
-        self.timestep = timestep
-        self.totaltime = totaltime
-        self.mass = mass
 
 def getinput():
     input = argparse.ArgumentParser()
@@ -74,7 +62,7 @@ def filecreation(index):
     timef=indexf[:,1]
     positionf=indexf[:,2]
     velocityf=indexf[:,3]
-    file=open('Langevin_Motion','w+')
+    file=open('Langevin_Motion.txt','w+')
     file.write('Index Time Position Velocity \n')
     for i in range(len(timef)):
         file.write('{}  {:.3f}  {:.5f}  {:.5f} \n'.format(i,timef[i],positionf[i],velocityf[i]))
@@ -121,8 +109,8 @@ def main():
     #write the index in to a txt file of the first run
     filecreation(idx)
 
-#if __name__ == '__main__':
-main()
+if __name__ == '__main__':
+    main()
 
     
 
