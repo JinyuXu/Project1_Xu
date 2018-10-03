@@ -39,5 +39,5 @@ deploy:
     secure: PLEASE_REPLACE_ME
   on:
     tags: true
-    repo: JinyuXu/langevin_dynamics/langevin_dynamics
+    repo: JinyuXu/langevin_dynamics
     python: 3.6
