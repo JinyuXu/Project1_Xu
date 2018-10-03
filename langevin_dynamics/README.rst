@@ -1,8 +1,8 @@
 =================
 Langevin Dynamics
 =================
-.. image:: https://coveralls.io/repos/github/JinyuXu/Project1_Xu/badge.svg?branch=master
-	:target: https://coveralls.io/github/JinyuXu/Project1_Xu?branch=master
+.. image:: https://coveralls.io/repos/github/JinyuXu/langevin_dynamics/badge.svg?branch=master
+	:target: https://coveralls.io/github/JinyuXu/langevin_dynamics?branch=master
 
 .. image:: https://img.shields.io/pypi/v/langevin_dynamics.svg
         :target: https://pypi.python.org/pypi/langevin_dynamics
