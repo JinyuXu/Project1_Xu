@@ -62,11 +62,10 @@ def filecreation(index):
     timef=indexf[:,1]
     positionf=indexf[:,2]
     velocityf=indexf[:,3]
-    file=open('Langevin_Motion.txt','w+')
-    file.write('Index Time Position Velocity \n')
-    for i in range(len(timef)):
-        file.write('{}  {:.3f}  {:.5f}  {:.5f} \n'.format(i,timef[i],positionf[i],velocityf[i]))
-    file.close()
+    with open('Langevin_Motion.txt','w+') as file:
+        file.write('Index Time Position Velocity \n')
+        for i in range(len(timef)):
+            file.write('{}  {:.3f}  {:.5f}  {:.5f} \n'.format(i,timef[i],positionf[i],velocityf[i]))
 
 def histogram(arr):
     plt.figure(0)
