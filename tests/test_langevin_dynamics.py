@@ -41,10 +41,9 @@ class Test(unittest.TestCase):
     def test_checkwall(self):
         #unit test for checkwall function
         randomposition = random.random()*5+0.01
-        randomposition = random.random()*(-5)+0.01
         self.assertFalse(LD.checkwall(randomposition,5))
         self.assertFalse(LD.checkwall(randomposition,5))
-        self.assertTrue(LD.checkwall(-5,5))
+        self.assertTrue(LD.checkwall(0,5))
         self.assertTrue(LD.checkwall(5,5))
      
 
@@ -70,7 +69,7 @@ class Test(unittest.TestCase):
         self.assertEquals(input1.initial_velocity,0)
         self.assertEquals(input1.temperature,300)
         self.assertEquals(input1.damping_coefficient,0.1)
-        self.assertEquals(input1.time_step,0.01)
+        self.assertEquals(input1.time_step,0.2)
         self.assertEquals(input1.wall_size,5)
         self.assertEquals(input1.total_time,1000)
 

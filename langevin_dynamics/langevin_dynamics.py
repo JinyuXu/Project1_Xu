@@ -13,7 +13,7 @@ def getinput():
     input.add_argument('--initial_velocity', type = float, default = 0, help = 'Initial velocity of the particle, default = 0' )
     input.add_argument('--temperature', type = float, default = 300, help = 'Temperature of the molecule, default = 300' )
     input.add_argument('--damping_coefficient', type = float, default = 0.1, help = 'Damping Coefficient of the molecule, default = 0.1' )
-    input.add_argument('--time_step', type = float, default = 0.01, help = 'Time interval of the simulation, default = 0.01' )
+    input.add_argument('--time_step', type = float, default = 0.2, help = 'Time interval of the simulation, default = 0.01' )
     input.add_argument('--wall_size', type = float, default = 5, help = 'Wall size of the simulation, default = 5' )
     input.add_argument('--total_time', type = float, default = 1000, help = 'Total time of the simulation, default = 1000' )
     inp = input.parse_args()
@@ -24,7 +24,7 @@ def acceleration(gamma=0.1,velocity=0,temperature=300,timestep=0.1,mass=1):
     return (-gamma*velocity/mass + np.random.normal(0,sigma))*timestep
 
 def checkwall(position, wallsize):
-    if position >= wallsize or position<=-wallsize:
+    if position >= wallsize or position<=0:
         return True
     else:
         return False
@@ -33,7 +33,7 @@ def checkwall(position, wallsize):
 def lgmotion(velocity,timestep):
     return velocity*timestep
 
-def integrate(position=0,velocity=0,temperature=300,gamma=0.1,timestep=0.01,wallsize=5,totaltime=1000,mass=1):
+def integrate(position=0,velocity=0,temperature=300,gamma=0.1,timestep=0.1,wallsize=5,totaltime=1000,mass=1):
     
     timepass=0
     indexnum=0
@@ -50,7 +50,7 @@ def integrate(position=0,velocity=0,temperature=300,gamma=0.1,timestep=0.01,wall
                 position = wallsize
                 index.append([indexnum+1,timepass,position,velocity])
             else:
-                position= -wallsize
+                position= 0
                 index.append([indexnum+1,timepass,position,velocity])
             break
         
